@@ -3,23 +3,63 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 9300",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 9310",
     "lint": "next lint"
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.18"
+    "@ant-design/icons": "^5.5.1",
+    "@emotion/cache": "^11.13.5",
+    "@emotion/react": "^11.13.5",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.13.5",
+    "@tanstack/react-query": "^5.61.3",
+    "@trpc/client": "^10.45.2",
+    "@trpc/server": "^10.45.2",
+    "antd": "^5.22.2",
+    "codemirror": "^6.0.1",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.36.4",
+    "next": "14.2.18",
+    "next-auth": "^4.24.10",
+    "ollama": "^0.5.10",
+    "pg": "^8.13.1",
+    "postgres": "^3.4.5",
+    "query-string": "^9.1.1",
+    "react": "^18.3.1",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^18.3.1",
+    "react-use": "^17.5.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tanstack/eslint-plugin-query": "^5.61.3",
+    "@tanstack/react-query-devtools": "^5.61.3",
+    "@types/codemirror": "^5.60.15",
     "@types/node": "^20",
+    "@types/pg": "^8.11.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "drizzle-kit": "^0.28.1",
     "eslint": "^8",
-    "eslint-config-next": "14.2.18"
+    "eslint-config-next": "14.2.18",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "lodash": "^4.17.21",
+    "prettier": "^3.3.3",
+    "typescript": "^5"
   },
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }
